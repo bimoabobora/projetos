@@ -1,0 +1,29 @@
+div{
+    display: inline;
+    position: absolute;
+    left: 520px
+}
+div[id = '1']{
+    display: inline;
+    position: absolute;
+    left: 678px
+}
+div[id = '2']{
+    display: inline;
+    position: absolute;
+    top: 120px
+}
+div[id = 'posicionar']{
+    position: absolute;
+    top: 120px;
+    left: 622px
+}
+div[id = 'posicionar2']{
+    position: absolute;
+    top: 120px;
+    left: 644px
+}
+div[id = 'ajuda']{
+    position: absolute;
+    top: 180px;
+}
