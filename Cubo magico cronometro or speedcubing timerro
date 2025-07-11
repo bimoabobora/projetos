@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro de cubo magico</title>
+    <link rel="stylesheet" href="estilocronometro.css"
+</head>
+<body>
+    <!--Objetivo é que o projeto tenha uma parte de CSS, js e o hmtl. Com as funções de 
+    Cronometrar o tempo da resolução do cubo magico, mostrar o tempo anterior e se houve acresimo ou 
+    decresimo no tempo.-->
+        <center>
+        <h1>Cronometro de Cubo magico</h1>
+       
+        <div><p>esse é o seu tempo ---></p></div> <div id="1"><p id="cronometro">0</p></div>
+        <div id="2"><p>Ultimo tempo</p></div>
+        <div id="posicionar"><p id="ultimo_tempo"></p></div>
+        <div id='ajuda' ><p>Para começar pressione tecla Enter, parar na tecla Espaço</p></div>
+        <center>
+    <script src="cronometro.js"></script>
+</body>
+</html>
+
+<script>
+// a função faz o cronometro subir, começa na tecla enter e para na tecla espaço
+// the function makes the counter go up, start on the key enter and stop on space key
+
+// Variaveis referentes a DOM de alguns paragrafos, uma flag para inicio e parada e o contador de inicio.
+// Some varibles refer to DOM of some paragraph, one flag to start and stop the counter and the counter
+let ultimo_tempo = window.document.getElementById('ultimo_tempo')
+let cronometro = window.document.getElementById('cronometro')
+let verificador = false
+let inicio = 0
+
+// adiciona um EventListener que percebe quando alguma tecla do teclado for precionada
+// Adds a EventListner thats know when a key is press down on a keyboard.
+
+// essa parte começa o contador/cronometro
+// this segment start the counter
+document.addEventListener('keydown', 
+function(iniciar){
+    if(iniciar.key === 'Enter' && !verificador){
+            verificador = true
+            periodo = setInterval(()=> {
+            guardar = inicio++
+            cronometro.innerText = inicio
+        }, 1000)
+    }
+// essa para o contador e salva o ultimo tempo
+// this segment stop the counter and saves the information of the last time
+    if(iniciar.key === ' '){
+        clearInterval(periodo)
+        verificador = false
+        cronometro.innerText = 0
+        inicio = 0
+        ultimo_tempo.innerText = guardar + 1
+    }
+})
+</script>
+
+css
+
+div{
+    display: inline;
+    position: absolute;
+    left: 520px
+}
+div[id = '1']{
+    display: inline;
+    position: absolute;
+    left: 678px
+}
+div[id = '2']{
+    display: inline;
+    position: absolute;
+    top: 120px
+}
+div[id = 'posicionar']{
+    position: absolute;
+    top: 120px;
+    left: 622px
+}
+div[id = 'ajuda']{
+    position: absolute;
+    top: 180px;
+}
