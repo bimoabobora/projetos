@@ -1,0 +1,40 @@
+int ledVerde = 2;
+int ledAzul = 3;
+int ledVermelho = 4;
+int bot = 5;
+int bot2 = 6;
+int bot3 = 7;
+
+
+void setup() {
+  pinMode(bot, INPUT_PULLUP);
+  pinMode(bot2, INPUT_PULLUP);
+  pinMode(bot3, INPUT_PULLUP);
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAzul, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop() {
+  Serial.println(bot);
+  int check = digitalRead(bot);
+  int check2 = digitalRead(bot2);
+  int check3 = digitalRead(bot3);
+  if (check == 0){
+  digitalWrite(ledVerde, HIGH);
+  }else{
+    digitalWrite(ledVerde, LOW);
+  }
+  if (check2 == 0){
+  digitalWrite(ledVermelho, HIGH);
+  }else{
+    digitalWrite(ledVermelho, LOW);
+  }
+  if (check3 == 0){
+  digitalWrite(ledAzul, HIGH);
+  }else{
+    digitalWrite(ledAzul, LOW);
+  }
+}
