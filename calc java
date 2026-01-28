@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class calc{
+    public static void main(String[] args){
+        Scanner entrada = new Scanner(System.in);
+        
+        // saber se a calculadora está ligada e qual parte está
+        boolean estado = true;
+        String parte = "dialogo";
+while(estado){
+    switch (parte) {
+        case "dialogo":{
+            System.out.println("ola, qual das seguintes operações deseja usar?");
+            System.out.println("Soma");
+            String escolha = entrada.nextLine();
+        
+
+            switch (escolha){
+                case "soma":{
+                    parte = "calculo";
+                break;
+                }
+            }
+            break;
+        }   
+        case "calculo":{
+            System.out.println("Coloque dois valores");
+            int x = Integer.parseInt(entrada.nextLine());
+            int y = Integer.parseInt(entrada.nextLine());
+            int soma = x + y;
+            System.out.println(soma);
+            System.out.println("voltar?");
+            String back = entrada.nextLine();
+            if (back.equals("voltar")){
+                parte = "dialogo";
+            }
+            else{
+                parte = "calculo";
+            }
+        break;
+        }
+        
+
+    }
+}
+
+
+
+
+
+
+    entrada.close();
+    }
+    
+}
